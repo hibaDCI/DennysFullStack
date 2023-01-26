@@ -3,15 +3,9 @@ import bcrypt from 'bcrypt';
 
 
 const userSchema = new Schema({
-  name: {
+  fullname: {
     type: String,
     required: [true, "Please provide a value as name of the user"],
-  },
-
-  username: {
-    type: String,
-    required: [true, "Please provide username"],
-    unique: [true, "The username is already in use"],
   },
 
   email: {
@@ -21,37 +15,44 @@ const userSchema = new Schema({
     lowercase: true,
   },
 
-  role: {
-    type: String,
-    enum: ['admin', 'customer', 'guest'],
-    default: 'guest'
-  },
   
   password: {
     type: String,
     required: [true, "Please provide a password"],
-    minlength: [5, "The password should contains 5 characters at least"],
-    select: false,
+    minlength: [5, "The password should contain 5 characters at least"],
+    // select: false,
   },
 
   confirm: {
     type: String,
-    required: [true, "Please provide a password"],
+    // required: [true, "Please provide a password"],
       minlength: [5, "The password should contains 5 characters at least"],
       validate: {
           validator: function (confirm) {
               return confirm === this.password
           },
-          message: 'Passwords are not matched!'
+          message: 'Passwords dont match!'
     }
     },
+    userPic: String,
   
-  changedAt: Date,
-  isVerified: {
-    type: Boolean,
-    default: false
-    }
-});
+    isVerified: {type: Boolean, default: false},
+  //   role: {
+  //     type: String,
+  //     enum: ['admin', 'user'],
+  //     default: 'user'
+  // },
+
+  // passChangeDate: {
+  //     type: Date
+  // },
+
+  // avtive: {
+  //     type: Boolean,
+  //     default: false
+  // }
+
+})
 
 
 /** hash the password */

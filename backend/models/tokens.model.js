@@ -1,15 +1,21 @@
-import { model, Schema } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 const tokenSchema = new Schema({
+    uid: {
+        type: Schema.Types.ObjectId,
+        required: true
+    },
+
     token: {
         type: String,
-        required: [true, 'Verification token is required']
+        required: true
     },
-    userid: {
-        type: Schema.Types.ObjectId,
-        ref: 'user',
-        required: [true, 'The id of token\'s owner is required']
+
+    iat: {
+        type: Date,
+        default: new Date(Date.now())
     }
 });
 
-export const Token = model('Token', tokenSchema);
+
+export const VToken = model('VToken', tokenSchema);

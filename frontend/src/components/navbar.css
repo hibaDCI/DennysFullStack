@@ -1,0 +1,116 @@
+*, *::after, *::before{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    
+}
+
+li{
+    list-style: none;
+    color:  rgb(228, 219, 237);
+}
+
+a{
+    text-decoration: none;
+    color:  rgb(228, 219, 237);
+}
+a:hover{
+    text-decoration: underline;
+    font-size: 3rem;
+    color: rgb(24, 214, 106);
+}
+
+.nav-link{
+ color:  rgb(228, 219, 237);
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 9vh;
+    /* background: rgb(0, 28, 73); */
+    background: linear-gradient(270deg, #051817, #0e3839);
+
+}
+
+.playerIcon {
+    width: 40px;
+}
+
+.nav_brand {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 3rem;
+    font-family: 'Bungee Shade', cursive;
+}
+
+.nav_menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 3rem;
+}
+
+.nav_toggler div{
+    width: 2.5rem;
+    height: 0.2rem;
+    margin: 0.4rem;
+    background:  rgb(237, 233, 239);
+    transition: 0.4s ease-in;
+}
+
+
+.nav_toggler{
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 948px) {
+    .nav_toggler {
+        display: block;
+    }
+
+.nav_menu{
+    position: fixed;
+    top: 9vh;
+    right: 0;
+    width: 50%;
+    opacity: 0.95;
+    height: 93vh;
+    font-size: 2.5rem;
+    /* background: rgb(0, 28, 73); */
+    background: linear-gradient(270deg, #051817, #0e3839);
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: 0.9s ease-in;
+    font-weight: 900;
+    z-index: 5;
+}
+
+}
+
+/* Nav Active class  */
+
+.nav_active{
+    transform: translateX(0);
+}
+
+/* Toggler Icon Animation */
+.toggle .line1{
+    transform: rotate(-45deg) translate(-4px, 5px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-4px, -5px);
+}
+
