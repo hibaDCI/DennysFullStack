@@ -168,6 +168,13 @@ export const signin = async (req, res, next) => {
         .cookie("access_token", token, {
           httpOnly: true,
           sameSite: "none",
+        // 1- sameSite:false,
+        
+        // 2- I used axios utils
+        
+        // 3- I also used CRA and not vite
+        
+        // all work now
           expires: new Date(Date.now() + 3600_000 * 24 * 30),
         })
         .send({
