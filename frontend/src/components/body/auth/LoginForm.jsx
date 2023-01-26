@@ -30,6 +30,8 @@ function LoginForm() {
       method: "POST",
       url: "/api/auth/signin",
       data: loginData,
+       
+        withCredentials: true
     })
       .then((response) => {
         alert(response.data.message);
