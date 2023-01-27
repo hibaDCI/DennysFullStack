@@ -16,8 +16,11 @@ const configureJwtStrategy = (passport) => {
       },
       (jwtPayload, done) => {
         // here is called serialize and deserialize
-
-        return User.findById(jwtPayload.id)
+// here is the second error , you tried to find the id from the payload (id) but when you created the payload in userController you called it userid
+       // therefore it sould be like this
+        return User.findById(jwtPayload.userid)
+        
+//         return User.findById(jwtPayload.id)
 
           .select("_id")
           .then((user) => {
